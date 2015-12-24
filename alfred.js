@@ -69,7 +69,7 @@ var options = {
 
 var app = express();
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res, err) {
   //res.send('Hello World!')
 })
 
