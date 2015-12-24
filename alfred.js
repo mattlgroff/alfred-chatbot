@@ -1,6 +1,7 @@
 var request = require('request');
 var JefNode = require('json-easy-filter').JefNode;
 var mcping = require('mc-ping');
+var express = require('express');
 
 var minecrafthost = process.env.minecrafthost 
 
@@ -62,6 +63,27 @@ var options = {
         json: true,
         url: "https://discordapp.com/api/auth/login"
 }
+
+
+//Heroku requires a webserver to bind to a port
+
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+var server = app.listen(80, function () {
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Example app listening at http://%s:%s', host, port)
+})
+
+
+
+
+
 
 
 
