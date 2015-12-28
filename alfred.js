@@ -856,21 +856,42 @@ request(options, function(err, res, body){ //Beginning of General Request
                                         if(message.indexOf("minecraft down") > -1 || message.indexOf("Is the minecraft server down?") > -1 || message.indexOf("minecraft down?") > -1) {
                                                 console.log(packet.d.author.username, packet.d.timestamp, packet.d.content)
 												var host = minecrafthost
+												
 												mcping(host, 25565, function(error, res) {
 												if (error){
 													console.log(res)
 													console.log (host + ": " + error.toString ())
-													var reply = "The server is offline!"
+													var reply = "The vanilla server is offline!"
 													sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)			
 													}
 												else{
 													console.log(res)
 													console.log (host + ": Alive");
-													var reply = "The server is online with " + res.num_players + "/" + res.max_players + " currently playing."
+													var reply = "The vanilla server is online with " + res.num_players + "/" + res.max_players + " currently playing."
 													sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)		
 													}
 													
 												}, 3000);
+												
+												mcping(host, 25566, function(error, res) {
+												if (error){
+													console.log(res)
+													console.log (host + ": " + error.toString ())
+													var reply = "The mod server is offline!"
+													sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)			
+													}
+												else{
+													console.log(res)
+													console.log (host + ": Alive");
+													var reply = "The mod server is online with " + res.num_players + "/" + res.max_players + " currently playing."
+													sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)		
+													}
+													
+												}, 3000);												
+												
+												
+												
+												
                                         }
 										
 										
