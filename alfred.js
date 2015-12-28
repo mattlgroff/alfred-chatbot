@@ -855,7 +855,7 @@ request(options, function(err, res, body){ //Beginning of General Request
                                         //Minecraft Server Check
                                         if(message.indexOf("minecraft down") > -1 || message.indexOf("Is the minecraft server down?") > -1 || message.indexOf("minecraft down?") > -1) {
                                                 console.log(packet.d.author.username, packet.d.timestamp, packet.d.content)
-												var host = minecrafthost.toString()
+												var host = minecrafthost
 												
 												mcping(host, 25565, function(error, res) {
 												if (error){
