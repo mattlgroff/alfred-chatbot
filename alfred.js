@@ -817,7 +817,7 @@ request(options, function(err, res, body){
                                         //Give Me a Reason
                                         if(message.indexOf("give me a reason") > -1 || message.indexOf("Give me a reason") > -1 || message.indexOf("Give Me A Reason") > -1) {
                                                 console.log(packet.d.author.username, packet.d.timestamp, packet.d.content)
-                                                var reply = 'Tristan fucked my goat'
+                                                var reply = 'Yodar loves goat cheese'
                                                 sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)
 
                                         }
