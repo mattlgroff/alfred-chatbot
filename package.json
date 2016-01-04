@@ -5,7 +5,6 @@
   "main": "alfred.js",
   "dependencies": {
     "express": "^4.13.3",
-    "gumer-psn": "^0.2.0",
     "json-easy-filter": "^0.3.1",
     "mc-ping": "^0.0.3",
     "node-gyp": "^3.2.1",
