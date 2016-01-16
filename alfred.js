@@ -118,13 +118,12 @@ request(options, function(err, res, body){
 
                 ws.on('open', function open() {  //ws.on Open is for first login
                         console.log('Connected')
-                ws.send(JSON.stringify(something))          //ws.send is sending something
+						ws.send(JSON.stringify(something))          //ws.send is sending something
                 })
 
 
                 ws.on('message', (packet, flags) => {
-                        packet = JSON.parse(packet)
-						
+                        //packet = JSON.parse(packet) Out-dated
 
                         switch (packet.t) {
                                 case 'READY':   //This is where Discord sends us the heartbeat
