@@ -99,34 +99,32 @@ request(options, function(err, res, body){
                 }
 
 
-                var something = {   //Message on Login to Discord API
+                var loginMessage = {   //Message on Login to Discord API
                         "op": 2,
                         "d": {
-                "token": token,
-                "v": 3,
-                "properties": {
-                        "$os": "Windows",
-                        "$browser": "Chrome",
-                        "$device": "",
-                        "$referrer":" https://discordapp.com/@me",
-                        "$referring_domain":"discordapp.com"
-                },
-                "large_threshold":100,
-                "compress":true
+							"token": token,
+							"v": 3,
+							"properties": {
+									"$os": "Windows",
+									"$browser": "Chrome",
+									"$device": "",
+									"$referrer":" https://discordapp.com/@me",
+									"$referring_domain":"discordapp.com"
+							}
                         }
                 }
 
                 ws.on('open', function open() {  //ws.on Open is for first login
                         console.log('Connected')
-						ws.send(JSON.stringify(something))          //ws.send is sending something
+						ws.send(JSON.stringify(loginMessage))          //ws.send is sending loginMessage
                 })
 
 
                 ws.on('message', (packet, flags) => {
-                        //packet = JSON.parse(packet) Out-dated
+						packet = JSON.parse(packet)
 
                         switch (packet.t) {
-                                case 'READY':   //This is where Discord sends us the heartbeat
+                                case 'READY':   //This is where Discord sends us the heartbeat										
                                         var heartbeatInterval = packet.d.heartbeat_interval
                                         console.log("Heartbeat interval set to", heartbeatInterval)
                                         startHeartbeat(heartbeatInterval)
