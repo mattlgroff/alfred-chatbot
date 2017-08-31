@@ -123,7 +123,7 @@ request(options, function(err, res, body){
                 ws.on('message', (packet, flags) => {
 						packet = JSON.parse(packet)
 						//console.log(packet.d);
-						console.log(packet.d.user.username + "'s Pocket: " + packet);
+						console.log(packet.d.user + "'s Pocket: " + packet);
 
                         switch (packet.t) {
                                 case 'READY':   //This is where Discord sends us the heartbeat										
