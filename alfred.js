@@ -123,7 +123,7 @@ request(options, function(err, res, body){
                 ws.on('message', (packet, flags) => {
 						packet = JSON.parse(packet)
 						//console.log(packet.d);
-						console.log(packet.d.user + "'s Pocket: " + packet);
+						console.log(packet.d + "'s Pocket: " + packet);
 
                         switch (packet.t) {
                                 case 'READY':   //This is where Discord sends us the heartbeat										
@@ -133,7 +133,7 @@ request(options, function(err, res, body){
                                         break
 
                                 case 'TYPING_START':
-										console.log(packet.d.user + " is typing.")
+										console.log(packet.d.user_id + " is typing.")
 										break
 
                                 case 'PRESENCE_UPDATE':
