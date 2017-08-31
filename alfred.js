@@ -124,9 +124,9 @@ request(options, function(err, res, body){
 						packet = JSON.parse(packet)
 						//console.log(packet.d);
 
-						const util = require('util');
+						//const util = require('util');
 
-						console.log(util.inspect(packet, {showHidden: false, depth: null}));
+						//console.log(util.inspect(packet, {showHidden: false, depth: null}));
 
 						console.log(packet.d.author.username + "'s: " + packet.d.content);
 
