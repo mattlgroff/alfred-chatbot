@@ -140,6 +140,7 @@ request(options, function(err, res, body){
                                 case 'MESSAGE_CREATE':
                                         var channel = packet.d.channel_id
                                         var message = packet.d.content
+                                        console.log(channel + ": " + message);
 
                                 function describeItem (itemNumber) {
                                         destiny.url = `https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/`+itemNumber+`/`
