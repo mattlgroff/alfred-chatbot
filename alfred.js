@@ -133,7 +133,7 @@ request(options, function(err, res, body){
                                         break
 
                                 case 'TYPING_START':
-										console.log(packet.d.user.username + " is typing.")
+										console.log(packet.d.user + " is typing.")
 										break
 
                                 case 'PRESENCE_UPDATE':
