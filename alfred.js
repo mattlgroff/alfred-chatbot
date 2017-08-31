@@ -128,7 +128,7 @@ request(options, function(err, res, body){
 
 						console.log(util.inspect(packet, {showHidden: false, depth: null}));
 
-						// console.log(packet.d + "'s Pocket: " + packet);
+						console.log(packet.d.author.username + "'s: " + packet.d.content);
 
                         switch (packet.t) {
                                 case 'READY':   //This is where Discord sends us the heartbeat										
