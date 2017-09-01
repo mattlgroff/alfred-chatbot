@@ -12,6 +12,7 @@ var itemIcon //Destiny Item Icon URL ending
 var token //Token for Discord
 var minecrafthost = process.env.minecrafthost 
 var destinyAPIkey = process.env.destinyAPI
+var discordAPI = process.env.discordAPI
 var credentials = { //Credentials for Discord.
 		email: process.env.email,
 		password: process.env.password
@@ -69,14 +70,12 @@ var sendMessage = (channel, message, mentions, nonce) => {
 
 //Beginning of Discord Request
 request(options, function(err, res, body){ 
-        token = body.token;
-        console.log(token);
 
         var auth = {
                 method: "get",
                 url: "https://discordapp.com/api/gateway",
                 headers: {
-                'Authorization': token
+                'Authorization': discordAPI;
                 }
         }
 
