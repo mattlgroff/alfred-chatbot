@@ -104,7 +104,7 @@ request(auth, function(err, res, body){   //Beginning of Auth Request to get URL
 
         ws.on('message', (packet, flags) => {
 				packet = JSON.parse(packet)
-				console.log(packet);
+				//console.log(packet);
 				//console.log(packet.d.author.username + "'s: " + packet.d.content);
 
                 switch (packet.t) {
@@ -124,7 +124,8 @@ request(auth, function(err, res, body){   //Beginning of Auth Request to get URL
                         case 'MESSAGE_CREATE':
                                 var channel = packet.d.channel_id
                                 var message = packet.d.content
-                                // console.log(channel + ": " + message);
+                                var authorUsername = packet.d.author
+                                console.log(authorUsername + ": " + message);
 
                         function describeItem (itemNumber) {
                                 destiny.url = `https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/`+itemNumber+`/`
@@ -801,6 +802,7 @@ request(auth, function(err, res, body){   //Beginning of Auth Request to get URL
                                 if(message.indexOf("give me a reason") > -1 || message.indexOf("Give me a reason") > -1 || message.indexOf("Give Me A Reason") > -1) {
                                         console.log(packet.d.author.username, packet.d.timestamp, packet.d.content)
                                         var reply = 'Yodar loves goat cheese'
+                                        console.log(sendMessage(channel, reply, packet.d.mentions, packet.d.nonce))
                                         sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)
 
                                 }
