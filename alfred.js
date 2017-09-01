@@ -9,7 +9,7 @@ var url //Placeholder value for HTTP requests URLs.
 var bungieSite = `https://www.bungie.net` //URL for bungie, used to shorten further URLs
 var itemNumber //Destiny Item Number
 var itemIcon //Destiny Item Icon URL ending
-var token //Token for Discord
+//var token //Token for Discord
 var minecrafthost = process.env.minecrafthost 
 var destinyAPIkey = process.env.destinyAPI
 var discordAPI = process.env.discordAPI
@@ -26,7 +26,7 @@ var auth = {
         url: "https://discordapp.com/api/gateway",
         headers: {
         'Authorization': discordAPI
-        };
+        }
 
 //For Debugging your environmental variables 
 console.log('Env minecrafthost: ' + process.env.minecrafthost)
@@ -96,18 +96,13 @@ request(auth, function(err, res, body){   //Beginning of Auth Request to get URL
         }
 
         ws.on('open', function open() {  //ws.on Open is for first login
-                console.log('Connected')
-				ws.send(JSON.stringify(loginMessage))          //ws.send is sending loginMessage
+                console.log('Connected');
+				ws.send(JSON.stringify(loginMessage));          //ws.send is sending loginMessage
         })
 
 
         ws.on('message', (packet, flags) => {
 				packet = JSON.parse(packet)
-				//console.log(packet.d);
-
-				//const util = require('util');
-
-				//console.log(util.inspect(packet, {showHidden: false, depth: null}));
 
 				console.log(packet.d.author.username + "'s: " + packet.d.content);
 
