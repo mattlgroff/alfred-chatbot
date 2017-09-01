@@ -29,8 +29,8 @@ var auth = {
         }
 
 //For Debugging your environmental variables 
-console.log('Env minecrafthost: ' + process.env.minecrafthost)
-console.log('Env destinyAPI: ' + process.env.destinyAPI)
+//console.log('Env minecrafthost: ' + process.env.minecrafthost)
+//console.log('Env destinyAPI: ' + process.env.destinyAPI)
 
 //Express
 var app = express();
