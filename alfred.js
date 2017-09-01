@@ -13,6 +13,12 @@ var itemIcon //Destiny Item Icon URL ending
 var minecrafthost = process.env.minecrafthost 
 var destinyAPIkey = process.env.destinyAPI
 var discordAPI = process.env.discordAPI
+var auth = {
+        method: 'get',
+        url: 'https://discordapp.com/api/gateway',
+        headers: {
+        	'Authorization': discordAPI
+        }
 var destiny = { //HTTP Request headers for Destiny API
         method: 'get',
         headers: {
@@ -21,16 +27,9 @@ var destiny = { //HTTP Request headers for Destiny API
         json: true,
         url: url
 }
-var auth = {
-        method: "get",
-        url: "https://discordapp.com/api/gateway",
-        headers: {
-        'Authorization': discordAPI
-        }
-
 //For Debugging your environmental variables 
-//console.log('Env minecrafthost: ' + process.env.minecrafthost)
-//console.log('Env destinyAPI: ' + process.env.destinyAPI)
+console.log('Env minecrafthost: ' + process.env.minecrafthost)
+console.log('Env destinyAPI: ' + process.env.destinyAPI)
 
 //Express
 var app = express();
