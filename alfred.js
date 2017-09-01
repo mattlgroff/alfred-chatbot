@@ -52,7 +52,7 @@ var sendMessage = (channel, message, mentions, nonce) => {
 
         request({
                 method: 'post',
-                url: `https://discordapp.com/api/channels/${channel}/messages`,
+                url: `https://discordapp.com/api/channels/{channel.id}/webhooks`,
                 headers: {
                         'Authorization': discordAPI
                 },
@@ -802,7 +802,6 @@ request(auth, function(err, res, body){   //Beginning of Auth Request to get URL
                                 if(message.indexOf("give me a reason") > -1 || message.indexOf("Give me a reason") > -1 || message.indexOf("Give Me A Reason") > -1) {
                                         console.log(packet.d.author.username, packet.d.timestamp, packet.d.content)
                                         var reply = 'Yodar loves goat cheese'
-                                        console.log(sendMessage(channel, reply, packet.d.mentions, packet.d.nonce))
                                         sendMessage(channel, reply, packet.d.mentions, packet.d.nonce)
 
                                 }
