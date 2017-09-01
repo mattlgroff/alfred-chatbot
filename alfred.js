@@ -104,8 +104,8 @@ request(auth, function(err, res, body){   //Beginning of Auth Request to get URL
 
         ws.on('message', (packet, flags) => {
 				packet = JSON.parse(packet)
-
-				console.log(packet.d.author.username + "'s: " + packet.d.content);
+				console.log(packet);
+				//console.log(packet.d.author.username + "'s: " + packet.d.content);
 
                 switch (packet.t) {
                         case 'READY':   //This is where Discord sends us the heartbeat										
