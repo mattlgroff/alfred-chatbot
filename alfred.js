@@ -13,10 +13,6 @@ var token //Token for Discord
 var minecrafthost = process.env.minecrafthost 
 var destinyAPIkey = process.env.destinyAPI
 var discordAPI = process.env.discordAPI
-var credentials = { //Credentials for Discord.
-		email: process.env.email,
-		password: process.env.password
-}
 var destiny = { //HTTP Request headers for Destiny API
         method: 'get',
         headers: {
@@ -25,17 +21,9 @@ var destiny = { //HTTP Request headers for Destiny API
         json: true,
         url: url
 }
-var options = { //HTTP Request headers for Discord API
-        method: "post",
-        body: credentials,
-        json: true,
-        url: "https://discordapp.com/api/auth/login"
-}
 
 //For Debugging your environmental variables 
 console.log('Env minecrafthost: ' + process.env.minecrafthost)
-console.log('Env email: ' + process.env.email)
-console.log('Env password: ' + process.env.password)
 console.log('Env destinyAPI: ' + process.env.destinyAPI)
 
 //Express
@@ -59,7 +47,7 @@ var sendMessage = (channel, message, mentions, nonce) => {
                 method: 'post',
                 url: `https://discordapp.com/api/channels/${channel}/messages`,
                 headers: {
-                        authorization: token
+                        'Authorization': discordAPI
                 },
                 json: true,
                 body: data
@@ -75,7 +63,7 @@ request(options, function(err, res, body){
                 method: "get",
                 url: "https://discordapp.com/api/gateway",
                 headers: {
-                'Authorization': discordAPI;
+                'Authorization': discordAPI
                 }
         }
 
@@ -101,7 +89,7 @@ request(options, function(err, res, body){
                 var loginMessage = {   //Message on Login to Discord API
                         "op": 2,
                         "d": {
-							"token": token,
+							"token": discordAPI,
 							"v": 3,
 							"properties": {
 									"$os": "Windows",
