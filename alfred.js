@@ -15,10 +15,12 @@ var destinyAPIkey = process.env.destinyAPI
 var discordAPI = process.env.discordAPI
 var auth = {
         method: 'get',
-        url: 'https://discordapp.com/api/gateway',
         headers: {
         	'Authorization': discordAPI
-        }
+        },
+        url: 'https://discordapp.com/api/gateway'
+    }    
+        
 var destiny = { //HTTP Request headers for Destiny API
         method: 'get',
         headers: {
@@ -26,7 +28,7 @@ var destiny = { //HTTP Request headers for Destiny API
                 },
         json: true,
         url: url
-}
+	}
 //For Debugging your environmental variables 
 console.log('Env minecrafthost: ' + process.env.minecrafthost)
 console.log('Env destinyAPI: ' + process.env.destinyAPI)
